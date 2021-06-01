@@ -62,7 +62,7 @@ class DjangoTracing(object):
                 # otherwise, apply tracing.
                 try:
                     self._apply_tracing(request, view_func, list(attributes))
-                    r = view_func(request, *args, **kwargs)
+                    r = view_func(cls, *args, **kwargs)
                 except Exception as exc:
                     self._finish_tracing(request, error=exc)
                     raise
