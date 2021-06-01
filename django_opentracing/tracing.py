@@ -53,7 +53,7 @@ class DjangoTracing(object):
             # reinstate the name-mangling with a trace identifier, and another
             # settings key)
 
-            def wrapper(request, *args, **kwargs):
+            def wrapper(cls, request, *args, **kwargs):
                 # if tracing all already, return right away.
                 if self._trace_all:
                     return view_func(request)
